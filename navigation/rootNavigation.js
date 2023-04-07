@@ -1,14 +1,13 @@
 import React,{useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native'
 import {AuthStack} from './authNavigation'
-import  {AppStack}  from './appStack';
+import  {AppStack}  from './appNavigation';
 
 export default function RootNavigation(){
     const isSignIn = false;
     return (
         <NavigationContainer>
-            {isSignIn ? (<AuthStack />) : (<AppStack/>)}
-            
+            <AuthStack />
         </NavigationContainer>
     )
 }

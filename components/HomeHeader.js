@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
     backgroundColor:colors.buttons,
     height:parameters.headerHeight,
     justifyContent:'space-between'
-}
+  },
+ 
+
 })
 
 export default HomeHeader

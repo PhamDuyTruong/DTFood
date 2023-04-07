@@ -5,16 +5,13 @@ import HomeScreen from '../screens/HomeScreen';
 
 const App = createStackNavigator();
 
+
 export function AppStack(){
     return (
         <App.Navigator>
             <App.Screen 
-                name="App"
+                name='AppScreen'
                 component={HomeScreen}
-                options={{
-                    headerShown: false,
-                    ...TransitionPresets.RevealFromBottomAndroid
-                }}
             
             />
         </App.Navigator>

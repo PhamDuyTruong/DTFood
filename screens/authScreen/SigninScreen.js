@@ -60,7 +60,7 @@ const SigninScreen = () => {
             title="SIGN IN"
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.buttonTitleStyle}
-            onPress={() => navigate.navigate("App")}
+            onPress={() => navigate.navigate("AppScreen")}
          />
 
       </View>
