@@ -5,7 +5,11 @@ import {colors, parameters} from '../global/styles'
 import HomeHeader from '../components/HomeHeader';
 import {Icon} from '@rneui/themed'
 import { useNavigation } from '@react-navigation/native';
-import {filterData, restaurantsData} from '../global/Data'
+import {filterData, restaurantsData} from '../global/Data';
+import Countdown from 'react-native-countdown-component'
+import FoodCard from '../components/FoodCard';
+
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 const HomeScreen = () => {
   const [delivery, setDelivery] = useState(true)
@@ -112,8 +116,35 @@ const HomeScreen = () => {
               <View style ={styles.headerTextView}>
                   <Text style ={styles.headerText}>Free Delivery now</Text>
               </View>
+              
+              <View>
+                  <View style = {{flexDirection : 'row', alignItems:"center"}}>
+                  <Text style ={{marginLeft:15,fontSize:16,marginTop:-10,marginRight:5}} >Options changing in</Text>
+                  <Countdown 
+                    until = {3600}
+                    size ={14}
+                    digitStyle = {{backgroundColor:colors.lightgreen}}
+                    digitTxtStyle ={{color:colors.cardbackground}}
+                    timeToShow = {['M','S']}
+                    timeLabels = {{m:'Min',s:'Sec'}}
+                  />
+                  </View>
+                  <FlatList 
+                      style ={{marginTop:10, marginBottom:10}} 
+                      horizontal ={true}
+                      data={restaurantsData}
+                      keyExtractor = {(item,index)=>index.toString()}   
+                      showsHorizontalScrollIndicator = {false}
+                      renderItem={(item) => (
+                        <View style={{marginRight: 5}}>
+                              
+                        </View>
+                      )}
+                  
+                  />
 
-     
+              </View>
+                        
 
        </ScrollView>
 
