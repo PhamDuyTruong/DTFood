@@ -14,7 +14,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 const HomeScreen = () => {
   const [delivery, setDelivery] = useState(true)
   const [indexCheck, setIndexCheck] = useState("0");
-  const navigate = useNavigation();
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
        <StatusBar
@@ -180,10 +180,53 @@ const HomeScreen = () => {
                )}  
             />
         </View>
+
+        <View style ={styles.headerTextView}>
+            <Text style ={styles.headerText}>Restaurants in your Area</Text>
+        </View>
+
+        <View style ={{width:SCREEN_WIDTH,paddingTop:10}}>
+        { 
+            restaurantsData.map(item =>(
+                <View key ={item.id} style = {{paddingBottom:20}}>
+                <FoodCard 
+                           screenWidth  ={SCREEN_WIDTH*0.95}
+                           images ={item.images}
+                           restaurantName ={item.restaurantName}
+                           farAway ={item.farAway}
+                           businessAddress ={item.businessAddress}
+                           averageReview ={item.averageReview}
+                           numberOfReview ={item.numberOfReview}
+                           
+                       />
+                </View>
+            )
+            )
+        }        
+    </View>    
                         
 
        </ScrollView>
 
+       { delivery &&
+<View style ={styles.floatButton}>
+    <TouchableOpacity
+                onPress ={()=>{
+                    navigation.navigate('RestaurantMapScreen')
+                }}
+            >
+
+        <Icon 
+            name = "place"
+            type = "material"
+            size = {32}
+            color = {colors.buttons}
+        />
+
+        <Text style ={{color:colors.grey2}}>Map</Text>
+    </TouchableOpacity>
+    </View>
+    }
     </View>
   )
 };
@@ -191,8 +234,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        paddingTop: 5
     },
     deliveryButton:{
       paddingHorizontal:20,
@@ -270,6 +312,16 @@ smallCardText :{
     fontWeight:"bold",
     color:colors.grey2
 },
+floatButton:{
+  position:'absolute',
+  bottom:10,right:15,
+  backgroundColor:'white',
+  elevation:10,
+  width:60,height:60,
+  borderRadius:30,
+  alignItems:'center'
+}
+
 
 })
 

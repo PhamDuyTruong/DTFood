@@ -4,6 +4,9 @@ import {Icon} from '@rneui/themed'
 import HomeScreen from '../screens/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors, parameters} from '../global/styles'
+import MyAccountScreen from '../screens/MyAccountScreen';
+import SearchScreen from '../screens/SearchScreen';
+import MyOrderScreen from '../screens/MyOrderScreen';
 
 
 const ClientTabs = createBottomTabNavigator();
@@ -18,7 +21,7 @@ export default function RootClientTabs(){
     }}
     >
         <ClientTabs.Screen
-            name='HomeScreen'
+            name='Home'
             component={HomeScreen}
             options ={
                 {
@@ -34,8 +37,61 @@ export default function RootClientTabs(){
                 }
             }
         >
-
         </ClientTabs.Screen>
+        <ClientTabs.Screen
+            name='Search'
+            component={SearchScreen}
+            options ={
+                {
+                    tabBarLabel : "Search",
+                    tabBarIcon: ({color,size})=>(
+                        <Icon 
+                            name ='search'
+                            type = 'material'
+                            color ={color}
+                            size ={size}
+                        />
+                    )
+                }
+            }
+        >            
+        </ClientTabs.Screen>
+        <ClientTabs.Screen 
+            name='MyOrder'
+            component={MyOrderScreen}
+            options ={
+                {
+                    tabBarLabel : "My Orders",
+                    tabBarIcon: ({color,size})=>(
+                        <Icon 
+                            name ='view-list'
+                            type = 'material'
+                            color ={color}
+                            size ={size}
+                        />
+                    )
+                }
+            }
+
+        />
+        <ClientTabs.Screen 
+            name='MyAccount'
+            component={MyAccountScreen}
+            options ={
+                {
+                    tabBarLabel : "My Account",
+                    tabBarIcon: ({color,size})=>(
+                        <Icon 
+                            name ='person'
+                            type = 'material'
+                            color ={color}
+                            size ={size}
+                        />
+                    )
+                }
+            }
+        
+        />
     </ClientTabs.Navigator>
     )
 }

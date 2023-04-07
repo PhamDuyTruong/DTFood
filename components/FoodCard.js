@@ -111,14 +111,15 @@ const styles = StyleSheet.create({
      },
 
      average:{
-        color:"white",
+        color:"#000",
          fontSize:20,
           fontWeight:'bold',
            marginTop:-3  
      },
      numberOfReview :{
-        color:"white", 
+        color:"#000", 
         fontSize:13,
+        fontWeight: 600,
         marginRight:0,
         marginLeft:0
      }
