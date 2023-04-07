@@ -119,7 +119,7 @@ const HomeScreen = () => {
               
               <View>
                   <View style = {{flexDirection : 'row', alignItems:"center"}}>
-                  <Text style ={{marginLeft:15,fontSize:16,marginTop:-10,marginRight:5}} >Options changing in</Text>
+                  <Text style ={{marginLeft:15,fontSize:16,marginTop:-10,marginRight:5, fontWeight: "bold"}} >Options changing in</Text>
                   <Countdown 
                     until = {3600}
                     size ={14}
@@ -135,15 +135,51 @@ const HomeScreen = () => {
                       data={restaurantsData}
                       keyExtractor = {(item,index)=>index.toString()}   
                       showsHorizontalScrollIndicator = {false}
-                      renderItem={(item) => (
+                      renderItem={({item}) => (
                         <View style={{marginRight: 5}}>
-                              
+                            <FoodCard 
+                               screenWidth  ={SCREEN_WIDTH*0.8}
+                               images ={item.images}
+                               restaurantName ={item.restaurantName}
+                               farAway ={item.farAway}
+                               businessAddress ={item.businessAddress}
+                               averageReview ={item.averageReview}
+                               numberOfReview ={item.numberOfReview}
+                            />
                         </View>
                       )}
                   
                   />
 
               </View>
+
+              <View style ={styles.headerTextView}>
+            <Text style ={styles.headerText}>Promotions available</Text>
+        </View>
+
+        <View>
+            <FlatList 
+               style ={{marginTop:10, marginBottom:10}} 
+               horizontal ={true}
+               data = {restaurantsData}
+               keyExtractor = {(item,index)=>index.toString()}   
+               showsHorizontalScrollIndicator = {false}
+               renderItem = {({item})=>(
+                   <View style ={{marginRight:5}}>
+                       <FoodCard 
+                           screenWidth  ={SCREEN_WIDTH*0.8}
+                           images ={item.images}
+                           restaurantName ={item.restaurantName}
+                           farAway ={item.farAway}
+                           businessAddress ={item.businessAddress}
+                           averageReview ={item.averageReview}
+                           numberOfReview ={item.numberOfReview}
+                           
+                       />
+                   </View>
+               )}  
+            />
+        </View>
                         
 
        </ScrollView>

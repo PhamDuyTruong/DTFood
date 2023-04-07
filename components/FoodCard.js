@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react';
 import {Text,View,TouchableOpacity,Image,StyleSheet,Dimensions} from 'react-native';
 import {Icon} from 'react-native-elements';
