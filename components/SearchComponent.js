@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import {Icon} from 'react-native-elements';
 import {colors} from "../global/styles"
 import { filterData } from '../global/Data';
-import Animated from 'react-native-reanimated';
+import filter from 'lodash/filter'
 
 const SearchComponent = () => {
     const [data, setData] =  useState([...filterData])

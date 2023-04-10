@@ -77,4 +77,6 @@ export const restaurantsData = [
         ],
     id:3
 },
-    ]
+];
+
+

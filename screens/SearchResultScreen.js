@@ -4,6 +4,8 @@ import {restaurantsData} from '../global/Data';
 import {colors} from '../global/styles'
 import SearchResultCard from '../components/SearchResultCard';
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
 const SearchResultScreen = ({navigation,route}) => {
   return (
     <View style={styles.container}>
@@ -13,7 +15,15 @@ const SearchResultScreen = ({navigation,route}) => {
              keyExtractor ={(item,index)=>index.toString()}
              renderItem={({item, index}) => (
                 <SearchResultCard 
-
+                    screenWidth = {SCREEN_WIDTH}
+                    images = {item.images}
+                    averageReview ={item.averageReview}
+                    numberOfReview ={item.numberOfReview}
+                    restaurantName ={item.restaurantName}
+                    farAway ={item.farAway}
+                    businessAddress ={item.businessAddress}
+                    productData ={item.productData}
+                    OnPressRestaurantCard ={()=>{navigation.navigate("RestaurantHomeScreen",{id:index,restaurant:item.restaurantName})}}
                 
                 />
              )}
