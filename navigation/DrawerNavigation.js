@@ -14,11 +14,11 @@ export default function DrawerNavigation(){
                   component ={RootClientTabs}
                   options = {{
                       title:'Client',
-                      drawerIcon: ({focussed,size}) =>(
+                      drawerIcon: ({focused,size}) =>(
                           <Icon 
                               type = "material-community"
                               name = "home"
-                              color = {focussed ? '#7cc' :colors.grey2}
+                              color = {focused ? '#7cc' :colors.grey2}
                               size = {size}
   
                           />

@@ -16,9 +16,9 @@ export default function RootClientTabs(){
 
     return (
     <ClientTabs.Navigator
-    tabBarOptions = {{
-        activeTintColor :colors.buttons
-    }}
+       tabBarOptions={{
+            activeTintColor:colors.buttons
+       }}
     >
         <ClientTabs.Screen
             name='Home'
