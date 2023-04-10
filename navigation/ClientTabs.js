@@ -39,7 +39,7 @@ export default function RootClientTabs(){
         >
         </ClientTabs.Screen>
         <ClientTabs.Screen
-            name='Search'
+            name='SearchScreen'
             component={SearchScreen}
             options ={
                 {
@@ -57,7 +57,7 @@ export default function RootClientTabs(){
         >            
         </ClientTabs.Screen>
         <ClientTabs.Screen 
-            name='MyOrder'
+            name='MyOrdersScreen'
             component={MyOrderScreen}
             options ={
                 {
