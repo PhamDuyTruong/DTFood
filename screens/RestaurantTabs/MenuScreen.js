@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react';
 import {colors} from '../../global/styles'
 import { menuData, specialData } from '../../global/Data';
+import {Icon} from 'react-native-elements'
 
 const MenuScreen = ({onPress}) => {
   return (

@@ -4,6 +4,7 @@ import SearchScreen from '../screens/SearchScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
+import MenuProductScreen from '../screens/MenuProductScreen';
 
 const ClientSearch = createStackNavigator()
 
@@ -43,6 +44,15 @@ const ClientStack = ({navigation, route}) => {
         <ClientSearch.Screen 
             name='RestaurantHomeScreen'
             component={RestaurantHomeScreen}
+            options = {
+                ()=>({
+                    headerShown:false
+                })
+            }
+        />
+        <ClientSearch.Screen 
+            name="MenuProductScreen"
+            component={MenuProductScreen}
             options = {
                 ()=>({
                     headerShown:false

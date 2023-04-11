@@ -1,14 +1,27 @@
 import { View, StyleSheet,FlatList,TouchableOpacity,Text} from 'react-native';
 import React from 'react';
-import {menuData} from '../global/Data'
+import {menuData, menuDetailedData} from '../global/Data'
+import MenuCard from '../components/MenuCard';
 
-const Routes = ({navigation}) => {
+const Route1 = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
         <View style={styles.view2}> 
             <FlatList 
                 style ={{backgroundColor:'white'}}
-                
+                data={menuDetailedData}
+                keyExtractor = {(item,index)=>index.toString()}
+                renderItem={({item, index}) => (
+                    <TouchableOpacity onPress ={()=>{navigation.navigate("PreferenceScreen",{index})}}>
+                            <MenuCard 
+                            productName ={item.meal}
+                            image ={item.image}
+                             price ={item.price}
+                            productDetails = {item.details}
+                            />
+                    </TouchableOpacity>
+                    
+                )}
             />
         </View>
     </View> )
@@ -36,4 +49,4 @@ const styles = StyleSheet.create({
   
   });
 
-export default Routes
+export default Route1
