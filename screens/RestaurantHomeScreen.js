@@ -4,7 +4,8 @@ import {colors, fonts} from '../global/styles';
 import {Icon} from 'react-native-elements'
 import { TabView,TabBar } from 'react-native-tab-view';
 import {restaurantsData} from '../global/Data';
-import RestaurantHeader from '../components/RestaurantHeader'
+import RestaurantHeader from '../components/RestaurantHeader';
+import MenuScreen from '../screens/RestaurantTabs/MenuScreen'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const initialLayout = SCREEN_WIDTH;
@@ -18,7 +19,8 @@ const RestaurantHomeScreen = ({navigation, route}) => {
         {key:'third',title:"REVIEWS"},
         {key:'fourth',title:"GALLERY"},
     ]);
-    const [index,setIndex] = useState(0)
+    const [index,setIndex] = useState(0);
+    const [modalVisible, setModalVisible] = useState(true);
 
     const renderTabBar = props => (
         <TabBar 
@@ -92,6 +94,9 @@ const RestaurantHomeScreen = ({navigation, route}) => {
                      />
                 </View>
             </View>
+
+            {index === 0 && <MenuScreen onPress={menuPressed}/>}
+
         </ScrollView>
 
         <TouchableOpacity>

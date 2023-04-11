@@ -79,4 +79,38 @@ export const restaurantsData = [
 },
 ];
 
+export const menuData = [
+    
+    {title:"BEEF",special:false,key:0, },
+    {title:"CHICKEN", special:false,key:1},
+    {title:"VEGGIE BURGER",special:false ,key:2},
+    {title:"FRIES& CORN",special:false ,key:3},
+    {title:"SALADS",special:false,key:4},
+    {title:"HAPPY MEALS",special:false,key:5},
+    {title:"SAHRE BOX",special:false,key:6},
+    {title:"MILKSHAKES",special:false,key:7},
+    {title:"COLD DRINKS",special:false,key:8},
+    {title:"DESSERTS",special:false,key:9},
+    {title:"HOT DRINKS",special:false,key:10},
+  
+    ] ;
+  
+  export const specialData =[
+    {title:"LIMITED OFFER",key:0},
+    {title:"GO CHILLI",key:1},
+    {title:"GO CHEESE",key:2},
+    {title:"MCCHICKEN DELUXE PROMO",key:3},
+  ];    
 
+  export const menu = [
+    { key: 1, title: 'BEEF' },
+    { key: 2, title: 'CHICKEN' },
+    { key: 3, title: 'VEGGIE BURGER' },
+    { key: 4, title: 'SHARE BOX' },
+    { key: 5, title: 'Happy Meals' },
+    { key: 6, title: 'Fries' },
+    { key: 7, title: 'Sides' },
+    { key: 8, title: 'Milkshakes' },
+  ] 
+
+  
