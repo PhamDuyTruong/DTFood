@@ -5,7 +5,8 @@ import Header from '../../components/Header';
 import { Formik } from 'formik';
 import {Icon,Button} from 'react-native-elements'
 import * as Animatable from 'react-native-animatable';
-// import {auth} from '../../firebase';
+import {auth} from '../../firebase';
+import {createUserWithEmailAndPassword} from 'firebase/auth'
 import { useNavigation } from '@react-navigation/native';
 
 const initialValues = {
@@ -22,6 +23,30 @@ const SignupScreen = () => {
     const[passwordFocussed, setPassordFocussed] = useState(false)
     const[passwordBlured,setPasswordBlured] = useState(false);
     const navigation = useNavigation();
+
+    const handleSignUp = async (values) => {
+        const {email, password} = values;
+        try {
+          const user = await createUserWithEmailAndPassword(auth, email, password);
+            Alert.alert("User created successfully !!!")
+            navigation.replace("SignInScreen")
+        } catch (error) {
+          if(error.code === 'auth/email-already-in-use'){
+            Alert.alert(
+              'That email address is already inuse'
+            )
+          }
+          if(error.code === 'auth/invalid-email'){
+            Alert.alert(
+              'That email address is invalid'
+            )
+          }
+          else{
+            Alert.alert(error.code)
+          }
+        }
+    }
+
   return (
     <View style={styles.container}>
         <Header title ="MY ACCOUNT"  type ="arrow-left"/>
@@ -29,7 +54,7 @@ const SignupScreen = () => {
              <View style={styles.view1}>
                 <Text style={styles.text1}>SIGN UP</Text>
              </View>
-             <Formik initialValues={initialValues}>
+             <Formik initialValues={initialValues} onSubmit={(values) => handleSignUp(values)}>
                 {(props) => (
                     <View style={styles.view2}>
                         <View style={styles.view3}>
@@ -113,7 +138,7 @@ const SignupScreen = () => {
                                       title = "Create my account"
                                       buttonStyle = {styles.button1}
                                       titleStyle ={styles.title1}
-                                      onPress = {() => {}}
+                                      onPress = {props.handleSubmit}
                                    />
                           </View>
                     </View>
