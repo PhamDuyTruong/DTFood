@@ -11,8 +11,11 @@ export function AppStack(){
         <App.Navigator>
             <App.Screen 
                 name='AppScreen'
-                component={HomeScreen}
-            
+                component={DrawerNavigation}
+                options ={{
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid
+                }}
             />
         </App.Navigator>
     )
