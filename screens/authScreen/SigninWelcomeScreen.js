@@ -56,7 +56,7 @@ const SigninWelcomeScreen = () => {
                     title="Create an account"
                     buttonStyle={styles.buttonStyle}
                     titleStyle={styles.buttonTitleStyle}
-                    onPress={() => {}}
+                    onPress={() => {navigation.navigate("SignUpScreen")}}
                 />
             </View>
         </View>
